@@ -1,0 +1,77 @@
+LandisData  "SCRAPPLE"
+
+>>     Parameter                Value
+>> ---------------------       	-------
+Timestep					1
+
+Species_CSV_File			scrapple_species.csv	
+
+AccidentalIgnitionsMap		accidental_ignitions.tif    
+LightningIgnitionsMap		lightning_ignitions.tif
+RxIgnitionsMap  			Rx_ignitions.tif
+
+AccidentalSuppressionMap	accidental_suppression.tif
+LightningSuppressionMap		lightning_suppression.tif
+RxSuppressionMap			Rx_suppression.tif
+
+GroundSlopeMap 				slope.tif
+UphillSlopeAzimuthMap		uphill_slope_azimuth.tif
+ClayMap						clay.tif
+
+LightningIgnitionsB0  		-6
+LightningIgnitionsB1    	0.082444
+AccidentalIgnitionsB0  		-6
+AccidentalIgnitionsB1   	0.075218
+IgnitionDistribution 		Poisson 
+
+MaximumFineFuels 		5400
+
+>> Prescribed Fire Parameters 
+MaximumRxWindSpeed 		11
+MaximumRxFireWeatherIndex	65.0
+MinimumRxFireWeatherIndex	10.0	
+MaximumRxTemperature 		32.0 	
+MinimumRxRelativeHumidity 	22.0	
+MaximumRxFireIntensity 		1
+NumberRxAnnualFires 		5
+NumberRxDailyFires 		1
+FirstDayRxFires 		10
+LastDayRxFires 			350
+TargetRxSize 			14
+
+MaximumSpreadAreaB0			175		 	<< Intercept
+MaximumSpreadAreaB1			-4.951		<< FWI
+MaximumSpreadAreaB2			-1.690		<< effective wind speed 
+
+SpreadProbabilityB0  		-0.5		<< Intercept
+SpreadProbabilityB1   		0.034532	<< FWI
+SpreadProbabilityB2  		0.000000	<< relativized fine fuels
+SpreadProbabilityB3  		0.018966	<< effective wind speed 
+
+SiteMortalityB0	-0.0088		<< Intercept
+SiteMortalityB1	0.00026380	<< Clay
+SiteMortalityB2	0.000		<< Previous PET
+SiteMortalityB3	0.001		<< Wind
+SiteMortalityB4	0.0000055	<< CWD
+SiteMortalityB5	0.00358100	<< Fine
+SiteMortalityB6	0.00000064	<< Ladder
+
+CohortMortalityB0  			-5.18		<< Intercept
+CohortMortalityB1 			-0.603774	<< The parameter fit for the relationship between bark thickness and cohort mortality.
+CohortMortalityB2   		 0.075682	<< The parameter fit for the relationship between site mortality and cohort mortality. 
+
+LadderFuelMaxAge 			28 		
+
+LadderFuelSpeciesList 
+CaloDecu  PinuJeff  PinuLamb  PinuMont  PseuMenz  Arctosta  Ceanothu  ChryChry  
+Frangula  Garrya  GaulShal  MahoNerv  Quercus  Rhododen  Rubus  Vacciniu  WhipMode
+
+SuppressionMaxWindSpeed		12 		
+Suppression_CSV_File		suppression_input.csv
+
+DeadWoodTable 		
+PinuJeff					22
+CaloDecu					33
+PinuLamb					27
+PinuMont					34
+PseuMenz					27
