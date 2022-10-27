@@ -1,0 +1,44 @@
+library(tidyverse)
+
+FRED <- read.csv("/Users/alisondeak/Downloads/FRED3_Entire_Database_2021.csv")
+FRED <- select(FRED, c("F01286","F01287","F00055","F00413"))
+arcto <- filter(FRED, F01286=="Arctostaphylos")
+ceano <- filter(FRED, F01286=="Ceanothus")
+frang <- filter(FRED, F01286=="Frangula")
+Garry <- filter(FRED, F01286=="Garrya")
+Gault <- filter(FRED, F01286=="Gaultheria")
+Mahon <- filter(FRED, F01286=="Mahonia")
+Querc <- filter(FRED, F01286=="Quercus")
+Rhodo <- filter(FRED, F01286=="Rhododendron" & F00055=="FR")
+Rubus <- filter(FRED, F01286=="Rubus" & F00055=="FR" )
+Vacci_FR <- filter(FRED, F01286=="Vaccinium" & F00055=="FR")
+Whipp <- filter(FRED, F01286=="Whipplea")
+
+Vacci_FR$F00413 <- as.numeric(Vacci_FR$F00413)
+Vacci_FR_CN <- mean(Vacci_FR$F00413, na.rm = TRUE)
+
+Rhodo$F00413 <- as.numeric(Rhodo$F00413)
+Rhodo_FR_CN <- mean(Rhodo$F00413, na.rm=TRUE)
+
+Rubus$F00413 <- as.numeric(Rubus$F00413)
+Rubus_FR_CN <- mean(Rubus$F00413, na.rm=TRUE)
+
+##------------------------------
+GRooTFullVersion <- read.csv("/Users/alisondeak/Downloads/GRooTFullVersion.csv", header=T, na.strings=c("", "NA"))
+str(GRooTFullVersion)
+unique(GRooTFullVersion$traitName)
+
+GRooTFullVersion <- select(GRooTFullVersion, c("genus", "species", "traitName","traitValue"))
+GRooT_traits <- filter(GRooTFullVersion, traitName=="Root_C_N_ratio" | traitName=="Root_lignin_concentration" )
+
+Arcto_GRooT <- filter(GRooT_traits, genus=="Arctostaphylos") # no return
+ceano_GRoot <- filter(GRooT_traits, genus=="Ceanothus") 
+frang_GRooT <- filter(GRooT_traits, genus=="Frangula") # no return
+Garry_GRooT <- filter(GRooT_traits, genus=="Garrya") # no return
+Gault_GRooT <- filter(GRooT_traits, genus=="Gaultheria") # no return
+Mahon_GRooT <- filter(GRooT_traits, genus=="Mahonia") # no return
+Querc_GRooT <- filter(GRooT_traits, genus=="Quercus") 
+Rhodo_GRooT <- filter(GRooT_traits, genus=="Rhododendron") 
+Rubus_GRooT <- filter(GRooT_traits, genus=="Rubus") 
+Vacci_GRooT <- filter(GRooT_traits, genus=="Vaccinium") 
+Whipp_GRooT <- filter(GRooT_traits, genus=="Whipplea") # no return
