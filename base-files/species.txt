@@ -1,0 +1,24 @@
+LandisData	Species	
+
+>>                                 Sexual    Shade  Fire  Seed Disperal Dist  Vegetative   Sprout Age  Post-Fire
+>>         Name         Longevity  Maturity  Tol.   Tol.  Effective  Maximum  Reprod Prob  Min   Max   Regen
+>> -------------------- ---------  --------  -----  ----  ---------  -------  -----------  ----  ----  ----------
+   ArbuMenz                 400        30      2     2         30     1000          0.9     5   300    resprout
+   Arctosta                 100        10      1     1        100     2000          0.9    10   100    resprout 
+   CaloDecu                 500        30      4     3         30     2000            0     0     0        none
+   Ceanothu		     50        10      2     1         30      150            0     0     0        none 
+   ChryChry                 250        40      3     1        100      800          0.8     2   200    resprout
+   Frangula                 150        10      3     1        100     1000          0.9     5   150    resprout 
+   Garrya                   100        10      4     2        100      500          0.9     5   100    resprout
+   GaulShal                  30        10      4     1         30      150          0.9     5    30    resprout  
+   MahoNerv                  30        10      4     1        100      500          0.7     5    30    resprout
+   NothDens                 250        30      4     3        100      400          0.9     2   200    resprout
+   PinuJeff                 450        25      2     5         50      350            0     0     0        none 
+   PinuLamb                 550        20      3     4         30      150            0     0     0        none
+   PinuMont                 350        15      2     3         30      400            0     0     0        none 
+   PseuMenz                 750        15      3     3        100     1500            0     0     0        none
+   Quercus                  100        10      2     1        100     1000          0.8    10   100    resprout 
+   Rhododen                 100        10      4     2        100     1000          0.8    10   100    resprout
+   Rubus                     30         5      3     2        150     1500          0.9     5    30    resprout     
+   Vacciniu                 100        10      4     1        100     1500          0.8     5   100    resprout
+   WhipMode                  30        10      4     1        30       500          0.8     5    30    resprout

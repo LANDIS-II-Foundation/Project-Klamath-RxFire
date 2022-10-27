@@ -1,0 +1,337 @@
+LandisData "Biomass Harvest"  << edited 3/18/2022 based on Project-Klamath-Climate-Fire BAU scenario
+
+Timestep 			5
+ManagementAreas 	"ownership.tif"
+Stands				"stands.tif"
+
+
+>> -----------------------------------------
+>> PRESCRIPTIONS
+>> -----------------------------------------
+
+
+Prescription    	PNIF
+	StandRanking 	Economic
+
+>> Species 	Economic Rank 	Minimum Age
+>> ------- 	------------- 	-----------
+PseuMenz	75				40
+    
+    SiteSelection   	CompleteStandSpread 20 20 
+    CohortsRemoved  	ClearCut
+    Plant 				PseuMenz
+
+
+>> -----------------------------------------
+Prescription    PIF
+StandRanking Economic
+>> Species 	Economic Rank 	Minimum Age
+>> ------- 	------------- 	-----------
+PseuMenz	75				40
+CaloDecu	65				40
+    SiteSelection   	CompleteStandSpread 40 40 
+    CohortsRemoved  	ClearCut
+    
+Plant PseuMenz
+
+Prescription    Salvage_plant
+  StandRanking	MaxCohortAge
+  SiteSelection	Complete	
+  MinTimeSinceDamage 1
+  CohortsRemoved PlantOnly
+Plant PseuMenz CaloDecu
+
+>> -----------------------------------------
+Prescription    KMC_Fed
+StandRanking 	Economic
+>> Species 	Economic Rank 	Minimum Age
+>> ------- 	------------- 	-----------
+PseuMenz	75				50
+
+    SiteSelection   	PatchCutting 	40% 	60
+    CohortsRemoved  	SpeciesList
+>> Species 	Cohorts removed
+>> ------- 	---------
+PseuMenz	1-120
+CaloDecu	1-120
+NothDens	1-120
+ArbuMenz	1-120
+ChryChry	1-120
+Arctosta	All
+Ceanothu	All
+Frangula	All
+Garrya		All
+GaulShal	All
+MahoNerv	All
+Quercus		All
+Rhododen	All
+Rubus		All
+Vacciniu	All
+WhipMode	All	
+
+
+>> -----------------------------------------
+Prescription	SOD_Sanit_Fed
+	StandRanking Economic
+>> Species 	Economic Rank 	Minimum Age
+>> ------- 	------------- 	-----------
+NothDens   	100 			20
+    SiteSelection   	PatchCutting 	60% 	9
+    CohortsRemoved  	SpeciesList
+>> Species 	Cohorts removed
+>> ------- 	---------
+NothDens 	All
+
+
+>> -----------------------------------------
+Prescription		PinuLamb_Release_Fed
+    StandRanking    Economic
+>> Species 	Economic Rank 	Minimum Age
+>> ------- 	------------- 	-----------
+   PinuLamb	100				20
+    SiteSelection   	PatchCutting 	60% 	10
+    CohortsRemoved  	SpeciesList
+>> Species Cohorts removed
+>> ------- ---------
+PseuMenz	1-120
+CaloDecu	1-120
+NothDens	All
+ArbuMenz	All
+ChryChry	All
+Arctosta	All
+Ceanothu	All
+Frangula	All
+Garrya		All
+GaulShal	All
+MahoNerv	All
+Quercus		All
+Rhododen	All
+Rubus		All
+Vacciniu	All
+WhipMode	All	
+
+
+>> -----------------------------------------
+Prescription    RxFire  <<based on 4-ft Flamelength
+>> --------------------------------- 
+    
+    StandRanking    Random  	<< No species preference
+    MinimumAge	    20			<< Age (years) is the average age of the oldest cohorts (per site) in a stand
+>>    MinimumTimeSinceLastHarvest		1  	<< (years) Includes any management activity
+    
+    ForestTypeTable 
+    >> For each inclusion rule, >70% of the sites in a stand MUST contain at least one cohort 
+    >> of the given age range & spp. for a rule to be true.
+    >> To qualify, at least one of these rules MUST be true
+    
+    >> InclusionRule	ageRange	percentCells	species 
+    Required 			20-200		70 				CaloDecu PseuMenz PinuLamb
+    
+    SiteSelection   PatchCutting	 80% 	40 	<< Will try to spread to hit this target size in hectares
+    CohortsRemoved  SpeciesList
+       
+	>> Species  CohortsAges (Biomass reduction %)        
+    PseuMenz    1-10 (85%) 11-20 (65%) 21-30 (59%) 31-40 (47%) 41-50 (38%) 51-60 (30%) 61-80 (24%) 81-100 (15%) 101-130 (7%) 131-150 (2%)
+    PinuLamb    1-10 (85%) 11-20 (65%) 21-30 (59%) 31-40 (47%) 41-50 (38%) 51-60 (30%) 61-80 (24%) 81-100 (15%) 101-130 (7%) 131-150 (2%)
+    PinuMont	1-10 (85%) 11-20 (65%) 21-30 (59%) 31-40 (47%) 41-50 (38%) 51-60 (30%) 71-80 (24%) 81-100 (15%) 101-130 (7%) 131-150 (2%)
+    CaloDecu    1-10 (85%) 11-20 (65%) 21-30 (59%) 31-40 (47%) 41-50 (38%) 51-60 (30%) 61-80 (24%) 81-100 (15%) 101-130 (7%) 131-150 (2%)
+	ChryChry	1-10 (95%) 11-20 (75%) 21-30 (65%) 31-40 (51%) 41-50 (42%) 51-60 (38%) 61-80 (30%) 81-100 (18%) 101-130 (10%) 131-150 (5%)
+	NothDens	1-10 (95%) 11-20 (75%) 21-30 (65%) 31-40 (51%) 41-50 (42%) 51-60 (38%) 61-80 (30%) 81-100 (18%) 101-130 (10%) 131-150 (5%)
+	Arctosta	All
+	Ceanothu	All
+	Frangula	All
+	Garrya		All
+	GaulShal	All
+	MahoNerv	All
+	Quercus		All
+	Rhododen	All
+	Rubus		All
+	Vacciniu	All
+	WhipMode	All	
+
+>>--------------------------------- 
+Prescription    MxFire  	<< Mixed Lethal Fire based on 6-ft FlameLength
+>>--------------------------------- 
+    
+    StandRanking    Random  			<< No species preference
+    MinimumAge	    80					<< Age (years) is the average age of the oldest cohorts (per site) in a stand
+    MinimumTimeSinceLastHarvest		1  	<< (years) Includes any management activity
+    
+    ForestTypeTable 
+    >> For each inclusion rule, >70% of the sites in a stand MUST contain at least one cohort 
+    >> of the given age range & spp. for a rule to be true.
+    >> To qualify, at least one of these rules MUST be true
+    
+    >> InclusionRule	ageRange	percentCells	species 
+    Required 			100-160 	70 				CaloDecu PseuMenz PinuLamb
+    
+    SiteSelection   	PatchCutting 	80% 	40 << Will try to spread to hit this target size in hectares
+    CohortsRemoved  	SpeciesList
+       
+	>> Species  	CohortsAges (Biomass reduction %)
+    PseuMenz    	1-10 (90%) 11-20 (70%) 21-30 (65%) 31-40 (56%) 41-50 (49%) 51-60 (42%) 61-80 (37%) 81-100 (15%) 101-130 (9%) 131-150 (3%)
+    PinuLamb    	1-10 (90%) 11-20 (70%) 21-30 (65%) 31-40 (56%) 41-50 (49%) 51-60 (42%) 61-80 (37%) 81-100 (15%) 101-130 (9%) 131-150 (3%)
+    CaloDecu    	1-10 (90%) 11-20 (70%) 21-30 (65%) 31-40 (56%) 41-50 (49%) 51-60 (42%) 61-80 (35%) 81-100 (15%) 101-130 (9%) 131-150 (3%)
+	PinuMont	1-10 (90%) 11-20 (70%) 21-30 (65%) 31-40 (56%) 41-50 (49%) 51-60 (42%) 61-80 (35%) 81-100 (15%) 101-130 (9%) 131-150 (3%)
+	ChryChry	1-10 (95%) 11-20 (85%) 21-30 (75%) 31-40 (65%) 41-50 (55%) 51-60 (50%) 61-80 (45%) 81-100 (30%) 101-130 (20%) 131-150 (10%)
+	NothDens	1-10 (95%) 11-20 (85%) 21-30 (75%) 31-40 (65%) 41-50 (55%) 51-60 (50%) 61-80 (45%) 81-100 (30%) 101-130 (20%) 131-150 (10%)	
+	Arctosta	All
+	Ceanothu	All
+	Frangula	All
+	Garrya		All
+	GaulShal	All
+	MahoNerv	All
+	Quercus		All
+	Rhododen	All
+	Rubus		All
+	Vacciniu	All
+	WhipMode	All	
+
+
+>> -----------------------------------------
+Prescription 	FireRisk-LightThinning		<< goal -> reduce fire risk by reducing ladder fuels, using hand-thinning (remove trees < 14 inches dbh)
+
+    	StandRanking 	FireHazard 
+	
+	>> Fuel Type	Fuel Type Rank
+	>> ---------	-------------
+		1			55
+		2			55
+		4			55
+		7			55
+		13			55
+		8			55
+		9			55
+		5			36
+		6			36
+		3			24
+		90			12
+		91			4
+	
+
+	ForestTypeTable 
+	>> InclusionRule	AgeRange	PercentCells	Species
+	>> -------------	---------	-----------	--------
+
+	SiteSelection 	CompleteStandSpread 	40 		40
+	
+>>	MinTimeSinceDamage	1
+
+    CohortsRemoved SpeciesList 
+	CaloDecu	1-50(99%) 51-60(80%) 61-70(70%) 71-80(40%)  81-90 (5%) 91-120 (1%)
+	PinuMont	1-50(99%) 51-60(80%) 61-70(70%) 71-80(40%)  81-90 (5%) 91-120 (1%)
+	PseuMenz	1-30(99%) 31-40(75%) 41-50(50%) 51-60(30%) 61-70(12%) 71-80(5%) 81-90(2%) 91-120 (1%)
+	PinuLamb	1-30(99%) 31-40(75%) 41-50(50%) 51-60(30%) 61-70(12%) 71-80(5%) 81-90(2%) 91-120 (1%)
+	NothDens	1-50(99%) 51-60(20%) 61-70(5%) 71-80(4%) 81-90(2%) 91-120 (1%)
+	ChryChry	1-50(99%) 51-60(20%) 61-70(5%) 71-80(4%) 81-90(2%) 91-120 (1%)
+	ArbuMenz	1-50(99%) 51-60(20%) 61-70(5%) 71-80(4%) 81-90(2%) 91-120 (1%)
+	Arctosta	10-200 (15%)
+	Ceanothu	10-200 (15%)
+	Frangula	10-200 (15%)
+	Garrya		10-200 (15%)
+	GaulShal	10-200 (15%)
+	MahoNerv	10-200 (15%)
+	Quercus		10-200 (15%)
+	Rhododen	10-200 (15%)
+	Rubus		10-200 (15%)
+	Vacciniu	10-200 (15%)
+	WhipMode	10-200 (15%)
+
+>> -----------------------------------------
+Prescription FireRisk-ModerateThinning		<< goal -> reduce fire risk by reducing ladder fuels, using mechanical-thinning (remove trees < 30 inches dbh)
+
+
+    	StandRanking 	FireHazard 
+	
+	<< Fuel Type	Fuel Type Rank
+	<< ---------	-------------
+		1			55
+		2			55
+		4			55
+		7			55
+		13			55
+		8			55
+		9			55
+		5			36
+		6			36
+		3			24
+		90			12
+		91 			4
+	
+
+	ForestTypeTable 
+
+	>> InclusionRule	AgeRange	PecentCells	Species
+	>> -------------	---------	-----------	--------
+
+	SiteSelection 	CompleteStandSpread 40 40
+
+>>	MinTimeSinceDamage 1
+
+    	CohortsRemoved 	SpeciesList 
+	CaloDecu	1-50(99%) 51-60(95%) 61-70(85%) 71-80(75%)  81-90 (60%) 91-120 (25%)
+	PinuMont	1-50(99%) 51-60(95%) 61-70(85%) 71-80(75%)  81-90 (60%) 91-120 (25%)
+	PseuMenz	1-30(99%) 31-40(90%) 41-50(75%) 51-60(60%) 61-70(45%) 71-80(32%) 81-90(20%) 91-120 (10%)
+	PinuLamb	1-30(99%) 31-40(90%) 41-50(75%) 51-60(60%) 61-70(45%) 71-80(32%) 81-90(20%) 91-120 (10%)
+	NothDens	1-50(99%) 51-60(90%) 61-70(80%) 71-80(70%) 81-90(60%) 91-120 (10%)
+	ChryChry	1-50(99%) 51-60(90%) 61-70(80%) 71-80(70%) 81-90(60%) 91-120 (10%)
+	ArbuMenz	1-50(99%) 51-60(90%) 61-70(80%) 71-80(70%) 81-90(60%) 91-120 (10%)
+	Arctosta	1-200 (35%)
+	Ceanothu	1-200 (35%)
+	Frangula	1-200 (35%)
+	Garrya		1-200 (35%)
+	GaulShal	1-200 (35%)
+	MahoNerv	1-200 (35%)
+	Quercus		1-200 (35%)
+	Rhododen	1-200 (35%)
+	Rubus		1-200 (35%)
+	Vacciniu	1-200 (35%)
+	WhipMode	1-200 (35%)
+
+>>-----------------------------------------------------------------
+>> PRESCRIPTION IMPLEMENTATION 
+
+>> Areas
+>> 2 = Federal (non-specified FS and BLM lands)
+>> 4 = Tribal Area
+>> 5 = PIF
+>> 6 = PNIF
+>> 7 = Matrix timberlands
+>> 8 = AMA
+
+    HarvestImplementations
+>>  Mgmt Area   Prescription    			Harvest Area    Begin Time  End Time
+>>  ---------   ------------    			------------    ----------  --------
+	2			KMC_Fed						0.079%
+	2			SOD_Sanit_Fed				0.023%	
+	2			PinuLamb_Release_Fed		0.023%
+	2			FireRisk-LightThinning		0.111%
+	2			FireRisk-ModerateThinning 	0.111%
+	5			PIF		        			0.025%	
+	5 			Salvage_plant				0.005%
+	6			PNIF	 	       			0.017%	
+	6 			Salvage_plant				0.006%
+	7			KMC_Fed						0.035%	
+	7			SOD_Sanit_Fed				0.006%	
+	7			PinuLamb_Release_Fed		0.006%	
+	7			RxFire						0.009%
+	7			MxFire						0.005%
+	7			FireRisk-LightThinning		0.026%
+	7			FireRisk-ModerateThinning 	0.046%
+	7 			Salvage_plant				0.021%
+	8			RxFire						0.014%
+	8			MxFire						0.008%
+	8			FireRisk-LightThinning		0.041%
+	8			FireRisk-ModerateThinning 	0.042%
+
+
+
+
+
+>>-----------------------------------------------------------------
+>> OUTPUTS
+
+PrescriptionMaps    	harvest/prescripts-{timestep}.tif
+BiomassMaps				harvest/biomass-removed-{timestep}.tif
+EventLog            	harvest-event-test-log.csv
+SummaryLog	    		harvest/summary-log.csv

@@ -1,0 +1,8 @@
+LandisData   "Ecoregions"
+
+>> Active	MapCode		Name	Description
+>> ------  	-------		----	-----------
+   no	     	0           	nodata  outside
+   yes        	1		eco1    eco1	
+   yes        	2           	eco2	eco2
+   yes        	3          	eco3    eco3

@@ -1,0 +1,115 @@
+LandisData	"NECN Succession"
+
+Timestep  1
+
+SeedingAlgorithm        WardSeedDispersal 
+
+InitialCommunities      initial_communities.txt
+InitialCommunitiesMap   IC_map.tif
+ClimateConfigFile 	climate_config.txt	
+
+
+SoilDepthMapName			soil_depth.tif 
+SoilDrainMapName			soil_drainage.tif
+SoilBaseFlowMapName			base_flow.tif
+SoilStormFlowMapName			storm_flow.tif
+SoilFieldCapacityMapName		field_capacity.tif
+SoilWiltingPointMapName			wilting_point.tif
+SoilPercentSandMapName			sand.tif
+SoilPercentClayMapName			clay.tif
+InitialSOM1CsurfMapName			SOM1surfC.tif
+InitialSOM1NsurfMapName			SOM1surfN.tif
+InitialSOM1CsoilMapName			SOM1soilC.tif
+InitialSOM1NsoilMapName			SOM1soilN.tif
+InitialSOM2CMapName			SOM2C.tif
+InitialSOM2NMapName			SOM2N.tif
+InitialSOM3CMapName			SOM3C.tif
+InitialSOM3NMapName			SOM3N.tif
+InitialDeadWoodSurfaceMapName	        dead_surface.tif
+InitialDeadCoarseRootsMapName	        dead_roots.tif
+
+CalibrateMode 		no
+SmokeModelOutputs  	no
+WaterDecayFunction  	Ratio 
+
+ProbabilityEstablishAdjust 	0.6
+InitialMineralN			4.00
+InitialFineFuels 		0.99 
+AtmosphericNSlope	       -0.000007
+AtmosphericNIntercept		0.004
+Latitude		       42.00
+DenitrificationRate		0.0014
+DecayRateSurf			0.9 << decay rates based off of Tahoe Central Sierra Project
+DecayRateSOM1			0.9
+DecayRateSOM2			0.02
+DecayRateSOM3			0.0002
+
+MaximumLAI
+>> ShadeClass	Max LAI
+>> ----------	-------- 	
+	1	1 
+	2	2.25 
+	3	3.5 
+	4	4.75
+	5	6	
+
+LightEstablishmentTable
+>>	Spp Shade	Probability					
+>>	Class		by Actual Shade					
+>>	 ----------	----------------------------	 				
+>>	0	1	2	3	4	5
+1	1.0	1.0	0.5	0.02	0.0	0.0	
+2	0.6	0.6	1.0	0.5	0.02	0.0	
+3	0.01	0.01	0.6	1.0	0.5	0.02	
+4	0.0	0.0	0.01	0.6	1.0	0.5	
+5	0.0	0.0	0.0	0.01	0.6	1.0	
+
+SpeciesParameters		NECN_sp.csv
+
+FunctionalGroupParameters	NECN_functional_group_params.csv
+
+FireReductionParameters
+>>   Severity   	WoodLitter			
+>>   Fire			Reductions      Litter    	CohortWood    	CohortFoliar    SOM
+>> -------------    ----------      ------    	----------    	------------    ----
+	1				0.20			0.75 	 	0				0.1				0.5 
+	2				0.25			0.80 	  	0.1				0.1				0.55 
+	3				0.30			0.85		0.15			0.5				0.65
+	4				0.50			1.0			0.2				0.65			0.75 
+	5				0.55			1.0			0.2				0.75			0.85
+	6				0.60			1.0			0.2				1.0				1.0
+	7				0.65			1.0			0.2				1.0				1.0
+	8				0.65			1.0			0.2				1.0				1.0
+	9				0.75			1.0			0.3				1.0				1.0
+	10				0.85			1.0			0.3				1.0				1.0		
+
+HarvestReductionParameters
+>>							WoodLitter	Litter	SOM			CohortWood	CohortLeaf
+>> Name						Reduct		Reduct	Reduction	Removal		Removal
+>> -----------				----------	------	---------	----------	----------	
+KMC_Fed						0.8			0.14	0.1			0.85		0.25
+SOD_Sanit_Fed				0.8			0.14	0.1			0.85		0.25
+Oak_Restoration_Fed			0.8			0.14	0.1			0.85		0.25
+PinuLamb_Release_Fed		0.8			0.14	0.1			0.85		0.25
+FireRisk-LightThinning		0.8			0.14	0.1			0.85		0.25
+FireRisk-ModerateThinning 	0.8			0.14	0.1			0.85		0.25
+Tribal						0.8			0.14	0.1			0.85		0.25
+Salvage_plant				0.8			0.14	0.1			0.85		0.25
+PIF		        			0.8			0.14	0.1			0.85		0.25
+Salvage_plant				0.8			0.14	0.1			0.85		0.25
+PNIF	 	       			0.8			0.14	0.1			0.85		0.25
+Salvage_plant				0.8			0.14	0.1			0.85		0.25
+KMC_Fed						0.8			0.14	0.1			0.85		0.25
+SOD_Sanit_Fed				0.8			0.14	0.1			0.85		0.25
+Oak_Restoration_Fed			0.8			0.14	0.1			0.85		0.25
+PinuLamb_Release_Fed		0.8			0.14	0.1			0.85		0.25
+RxFire						0.8			0.14	0.1			0.85		0.25
+MxFire						0.8			0.14	0.1			0.85		0.25
+FireRisk-LightThinning		0.8			0.14	0.1			0.85		0.25
+FireRisk-ModerateThinning 	0.8			0.14	0.1			0.85		0.25
+Salvage_plant				0.8			0.14	0.1			0.85		0.25
+RxFire						0.8			0.14	0.1			0.85		0.25
+MxFire						0.8			0.14	0.1			0.85		0.25
+FireRisk-LightThinning		0.8			0.14	0.1			0.85		0.25
+FireRisk-ModerateThinning	0.8			0.14	0.1			0.85		0.25
+	

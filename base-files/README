@@ -1,0 +1,3 @@
+This folder contains all of the files that remained unchanged during each scenario. 
+To change the climate scenario, alter the climate_config file with the correct ClimateFile and SpinupClimateFile from the scenario folder. The Warmer&Drier and Warmer&Wetter scenarios require the ClimateTimeSeries and SpinUpClimateTimeSeries to be specified as "Daily_SequencedYears". The historical_climate scenario requires the ClimateTimeSeries and SpinUpClimateTimeSeries to be specified as "Daily_RandomYears".
+To change the prescribed fire scenario, add the fire (SCRPPLE) scenario to the folder you're running the batchfile in and specify the correct SCRPPLE file in the Scenario.txt file.

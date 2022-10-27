@@ -1,0 +1,5 @@
+FunctionalGroupName,FunctionalGroupIndex,TemperatureCurve1,TemperatureCurve2,TemperatureCurve3,TemperatureCurve4,FractionANPPtoLeaf,LeafBiomassToLAI,KLAI,MaximumLAI,MinimumLAI,MoistureCurve2,MoistureCurve3,WoodDecayRate,MonthlyWoodMortality,LongevityMortalityShape,FoliageDropMonth,CoarseRootFraction,FineRootFraction,GrowthLAI
+Conifer,1,16,30,3.1,2.9,0.2,-0.8,10000,17,0.1,0.7,0.5,0.08,0.002,15,10,0.2,0.7,0.47
+Hardwood,2,18,31,4.7,2.7,0.2,-0.8,7500,15,0.1,0.8,0.75,0.08,0.002,19,10,0.1,0.5,0.47
+Shrub_mesic,3,12,25,5,4.2,0.2,-0.8,5000,7,0.2,0.7,0.7,0.08,0.002,15,10,0.2,0.6,0.47
+Shrub_xeric,4,16,31,1.6,3.3,0.2,-0.8,5000,7,0.2,0.5,0.8,0.08,0.002,20,10,0.1,0.7,0.47
